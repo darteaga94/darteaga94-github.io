@@ -1,18 +1,36 @@
 ---
 layout: default
+title: Dinier Arteaga
 ---
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
+<div class="home" id="home">
+  <h1 class="pageTitle">Artículos Recientes</h1>
+  <ul class="posts noList">
+    {% for page in paginator.posts %}
+    <li>
+      <span class="date">Escrito el: {% include formato_fecha.html %}.</span>
+      <h3><a class="post-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</h3>
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+        <img height="200" width="350" src="{{site.baseurl}}/assets/img/{{page.image}}"  />
+      </a>
+      <p class="description">
+        {{ page.content | strip_html | strip_newlines | truncate: 150 }}
+        <a class="post-link" href="{{ page.url | prepend: site.baseurl }}">más</a>
+      </p>
+    </li>
+    {% endfor %}
+  </ul>
+  <!-- Pagination links -->
+  <div class="pagination">
+    {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" class="previous button__outline">Entradas Recientes</a>
+    {% endif %}
+    {% if paginator.total_pages > 0 %}
+    <span style="margin-left: 30px;">Página: {{ paginator.page }} de {{ paginator.total_pages }}</span>
+    {% endif %}
 
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
-
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
+    {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl }}" class="next button__outline">Entradas Antiguas</a>
+    {% endif %}
+  </div>
 </div>
