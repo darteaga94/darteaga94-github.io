@@ -4,12 +4,16 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+I am a positive and disciplined person.
+
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+I studied Software Engineering at Universidad Técnica Nacional (UTN).
+I studied media technician in networks.
+I have the title of CCNA 1
+I live in Aguas Zarcas, Alajuela, Costa Rica.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[darteaga94@gmail.com](mailto:email@gmail.com)
